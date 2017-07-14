@@ -28,7 +28,7 @@ property :template_source, String, default: 'file-input.conf.erb'
 
 action :create do
   log_name = new_resource.name
-  template "/etc/rsyslog.d/#{priority}-#{new_resource.name}.conf" do
+  template "/etc/rsyslog.d/#{new_resource.priority}-#{new_resource.name}.conf" do
     mode '0664'
     owner node['rsyslog']['user']
     group node['rsyslog']['group']
